@@ -1,5 +1,25 @@
 # Chapter 8: Component-Based Thinking
 
+## TLDR: Architect's Problem Breakdown Process
+
+| Process | Description | When to Use |
+|---------|-------------|-------------|
+| **Identify Core Components** | Break down system into business function pieces | Start of logical architecture design |
+| **Choose Decomposition Approach** | Select Workflow or Actor/Action method | Based on system complexity and actor count |
+| **Workflow Approach** | Map user journey → allocate components to each action | Simple systems with clear user workflows |
+| **Actor/Action Approach** | Identify actors → actions → map to business logic | Complex systems with multiple actors |
+| **Assign Responsibilities** | Define what each component does | After initial component identification |
+| **Refactor Based on Requirements** | Adjust components based on system needs | Throughout design process |
+| **Analyze Coupling** | Evaluate component dependencies (afferent/efferent) | Before finalizing architecture |
+| **Apply Loose Coupling** | Use Law of Demeter - limit component knowledge | During component design |
+
+### Quick Decision Matrix
+- **Few actors, clear workflow** → Use Workflow Approach
+- **Multiple actors, complex interactions** → Use Actor/Action Approach
+- **High coupling detected** → Refactor using Law of Demeter
+
+---
+
 Overview
 
 ## Definitions
