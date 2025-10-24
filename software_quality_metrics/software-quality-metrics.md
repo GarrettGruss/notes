@@ -104,12 +104,12 @@ Whenever a change is made to a software baseline, the changes and impacts should
     * f(x): measurement as functional mapping
     * aRb <-> f(a) > f(b)
 
-## MEasurement Evaluation
+## Measurement Evaluation
 
 Evaluation criteria:
 
-- Are theyp roperly defined
-- Are theyp properly used
+- Are they properly defined
+- Are they properly used
 - Do they lead to any useful results
 
 Based on evaluation
@@ -129,3 +129,160 @@ Empirical evaluation of metrics
 - 
 
 ## Types of metrics evaluation
+
+# Metrics
+
+## External Measures
+
+- **Quality Metrics:** Reliability, Availability, Usability, Extensibility, security, portability 
+- **Non-Quality Metrics:** Customer satisfication, Cost, Effort, Schedule
+- **Effort:** Man-Month
+- **Cost:** Cost Estimation
+
+## Goal Question Answer (GQA) Metrics
+
+- External: Time, Effort, Quality, Productivity
+- Internal: Size
+
+Relate  them using a model, ex: Putnam
+
+## Availability
+
+Track Mean Time To Failure (MTTF) and Mean Time to Repair (MTTR). System availability can be calculated as:
+
+`Availability = MTTF / (MTTF + MMTTR)`
+
+## Code Complexity
+
+Data Items, Data Structures, Data Dependencies
+
+- **Lexical:** Token-based measurement computation: Lines of code (LOC), Control Types, Related Counts, GOTOs, Decisions, Branches, etc.
+- **Syntactic:** Semantic Analysis needed for measure computation: Statement Count, Concatenation, Nesting, GOTO
+- **Semantic:** Semantic analysis needed for measure computation: Dependency-Use Pair (DU), Control Dependency, Logical/Algebraic sensitization.
+
+## Size Metrics
+
+Cone of uncertainty
+
+![Cone of Uncertainty](https://lh4.googleusercontent.com/8BYWfNyhx-9x_UMAPRR8yWwwvdM5h6WOmwAiOr7kcc7cEdUOsPGhorZjjIX5MQfzSKT7_qrWqLW9lzx3izyQFkhT2YoBTADAiohBprdTuTRySJjao-LozjmOj-sJsameebp32SYkoBwLtaCG-wS73Bg)
+
+### Gearing Factors
+
+How many lines of code are required to write the same method in different languages. Represents relative complexity between languages.
+
+### Size Metrics: Change
+
+Continual Service Improvement (CSI)
+
+-   Improve software quality
+-   Reduce dev cost
+-   Increase safety and security
+
+Systems to Software Integrity (SSI)
+
+-   Safety, Security, and Maintainability
+
+NASA classification scheme
+
+- 25% of teams maintain active metrics
+- 20% of teams baseline metrics, but do not maintain
+- 5% do not actively track metrics
+- 50% never maintain metrics
+
+### Size Metrics: Function Point
+
+- Count External user inputs, Inquiries, Outputs, Master Files
+
+### Cyclomatic Complexity
+
+Measure of how many unique paths exist
+
+`v = e - n + 2p`
+e: edges
+n: nodes
+p: connected components
+
+`v = c + 1`
+
+### Knot count
+
+Knots indicate branching / crossing of control structures (break, goto). High count indicates lack of structure. Goal is less than 0.
+
+## Data Complexity Metrics
+(TODO): Garrett Gruss Create a table for complexity Metrics, rows = metrics domain, columns = Lexical, Syntactic, Semantic
+
+Lexical: Variables
+
+Syntactic: Scoping
+
+Semantic: Data Dependency (DU) pair
+
+### Information Flow Metrics (IFM)
+
+`IFM = (fan-in x fan-out)^2`
+
+Fan-in: Number of local flows into procedure
+Fan-out: Number of flows from procedure
+
+## Interface Complexity Metrics
+
+- Usability, UI/UX
+
+Map Lexical/Syntactic/semantic to attribute-based-credentials (ABCs)
+
+- Anthropomorphic: Centered around user's traits/intent
+- Keystroke level model (KLM): How many keystrokes are required to finish a task without errors.
+
+## Volume Complexity Metrics
+
+`v = (N1 + N2)log2(n1 + n1)`
+
+- n1: number of distinct operators
+- n2: number of distinct operands
+- N1: total number of operators
+- N2: total number of operands
+
+`E = N2 * v / n1`
+
+- E: Programming effort
+
+## Object Oriented Complexity Metrics
+
+- WMC: Weighted methods per class: complexity.
+- DIT: Depth of inheritence tree: Maximum length from the node to the root of the tree.
+- NOC: Number of children: number of subclasses: High DIT and low NOC is goal.
+- CBO: Coupling between object classes: Number of classes whose methods are used by a class.
+- RFK: Response for class: Measure of local methods.
+- LCOM: Lack of cohesion on method: measure of dissimilarity of the methods in a class.
+    * Promots encapsulation and decreases complexity
+
+## Presentation Complexity Metrics
+
+- Lexical: PResentation Token Metrics, Comments
+- Syntactic: Rules used, indentation
+- Semantic: Meaning in presentation, aliasing
+
+## Hybrid Metrics
+
+- Interface Complexity
+- Halstead's Software Metrics
+- Primary Principal Component Analysis (PCA)
+- Algorithmic
+    * Graph Coloring Chaitin - Briggs Algorithm: Degree < R rule
+- Minimal algorithmic representation
+    * Representation achieved:
+        - sums of products
+        - products of sums
+    * Objective no term contains unnecessary variables
+        - No term is unneccesasary
+- Computational Complexity Linkage
+    * Example run time to evaluate comparator: Linkage of 2 record files
+
+## Non code-based metrics
+
+- Measuring specs, designs.
+- Function point
+- Card and Glass design metrics
+    * Structural Complexity: fan-out
+    * Data Complexity: Interfaces, data size
+    * System Complexity: Structural + Data Complexity
