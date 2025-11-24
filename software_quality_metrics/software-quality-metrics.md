@@ -1,6 +1,6 @@
 # Software Quality Metrics
 
-## Metrics: Internal vs. External
+## Module 1 and 2: Metrics: Internal vs. External
 
 **Basic Assumption**: Lower complexity = cheaper to build, easier to maintain, more reliable
 
@@ -16,8 +16,6 @@
 - Process: Discover appropriate measures → Establish predictive relations → Use and validate
 
 **GQA Framework**: External (Time, Effort, Quality, Productivity), Internal (Size, Complexity). Related via models (e.g., Putnam).
-
-## Metrics and Models
 
 ### Measurement Frameworks
 
