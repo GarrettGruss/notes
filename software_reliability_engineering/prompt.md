@@ -1,0 +1,1 @@
+Greatly simplify the notes, and only focus on discrete content that would be covered during a test.
