@@ -1,0 +1,58 @@
+% Read the AWS white paper about the security design of the AWS Nitro SystemLinks to an external site.. According to the white paper : "The AWS Nitro System is the underlying platform for all modern EC2 instances." How is the Nitro System different from a traditional virtualization system? Describe its main components. How does AWS secure the Nitro System for sensitive applications? 
+
+% Prepare a report detailing your research and findings. Your report should be a pdf file that's two to three pages long excluding the references. Include the references you used at the end of your report on a separate page. Use 1.5-spaced pages and 12pt font size (Calibri (Body)). For optimum performance, please refer to the rubric often.
+
+\documentclass[14pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+
+\onehalfspacing
+
+\title{Assignment 2}
+\author{Garrett Gruss 4976-3695}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Abstract}
+
+\section{Introduction}
+
+EC2 is Amazon Web Services's (AWS) primeier service for scalable compute in the cloud. Launched in the beginning of 2018, AWS Nitro is a combination of purpose built server designs, data processors, system management components, and specialized firmware acting as the underlying platform that all EC2 instances run on.
+
+\section{Core Components}
+
+The core components of the AWS Nitro system consists of purpose-built Nitro cards, the Nitro security chip, and the Nitro hypervisor. Together, these components form the EC2 control plane
+
+\subsection{Nitro Cards}
+
+Each Nitro system is composed of multiple Nitro cards stacked within a Nitro Server. These cards share power and PCIe interfaces with a host Nitro Controller. Each Nitro Card runs on purpose built hardware designed by Annapurna Labs, with firmware designed by dedicated AWS engineering teams.
+
+\subsection{Nitro Hypervisor}
+
+The Nitro hypervisor is responsible for managing the virtual machine (VM) of each EC2 instance running on the Nitro system. The hypervisor handles tasks such as resource isolation, control of privileged instructions, TBD. The hypervisor is designed with security first, and cannot initiate outbound communication or allow user access, as it does not have a shell or any general operating-system components.
+
+The hypervisor guards against side-channel attacks by ensuring the CPU Threads and L1/L2 cache are never shared amongst EC2 instances.
+
+\subsection{Nitro Controller}
+
+The Nitro security chip is responsible for secure boot and operating of the Nitro system. It continuously Intercepts and moderates all operations to local firmware at runtime, and alarms on anomalous behavior. During boot, it securely unlocks the system to guard against TBD.
+
+\subsection{Specialized Nitro Cards}
+
+The Nitro system contains several specialized cards responsible for networking, block storage, and file storage. The Nitro VPC card contains physical I/O network interfaces which is virtualized and distributed to EC2 instances through TBD. Storage is handled through the Nitro EBS card for block storage, and the local NVMe card for file storage. The hypervisor is responsible for attaching storage from these cards to each EC2 instance.
+
+\section{Physical Security}
+
+AWS employs additional site security such as physical access control, and continuous security monitoring to ensure no unauthorized person enters the datacenter. All storage devices removed from the Nitro system are physically destroyed to ensure no data is leaked.
+
+\section{References}
+
+\end{document}
