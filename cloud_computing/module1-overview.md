@@ -51,36 +51,40 @@ SQS: 2004
 
 ![SRM](shared-responsibility-model.png)
 
-If you can see it in the AWS console, then you manage it as the user/provisioner
+If you can see it in the AWS console, then you manage it as the user/provisioner.
+- For EC2, only open certain ports
+- use model of least permissions for IAM
+- Patching of EC2 instance, patching of database running on EC2
+- Encryption is a shared responsibility
 
 ## Compute
 
-EC2
-Lambda
-Elastic Beanstalk
+- **EC2:** Raw compute
+- **Lambda:** Serverless compute
+- **Elastic Beanstalk:** Automated provision of services
 
 ## Storage
 
 - S3
-- Elastic Block Storage (EBS)
-- Elastic File Storage (EFS)
-- AWS Storage Gateway
-- Amazon FSx
+- Elastic Block Storage (EBS): Operating system or a database
+- Elastic File Storage (EFS): Files/share folder
+- AWS Storage Gateway: 
+- Amazon FSx: File system you can mount
 
 
 ## Database
 
 - Relational Database Service (RDS)
-- DynamoDB
-- Redshift
+- DynamoDB: nosql
+- Redshift: data warehouse
 
 ## Networking
 
-Amazon virtual private cloud (VPC)
-- AWS DirectConnect
-- Amazon Route 53
-- Amazon API Gateway
-- AWS Global Accelerator
+- Amazon virtual private cloud (VPC): Isolated chunk of the cloud you can configure
+- AWS DirectConnect: direct connection to your datacenter and AWS
+- Amazon Route 53: DNS service
+- Amazon API Gateway: 
+- AWS Global Accelerator: 
 
 ## Pillars of AWS well-architected framework
 

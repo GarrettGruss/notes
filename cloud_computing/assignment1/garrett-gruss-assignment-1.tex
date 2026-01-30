@@ -4,68 +4,59 @@
 \usepackage{setspace}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
+\usepackage{enumitem}
+
 
 \onehalfspacing
 
-\title{Event-Driven Process Mining for Failure Cascade Detection in Vehicle Telemetry Systems}
+\title{Cloud Computing: History, Characteristics, and Security Considerations}
 \author{Garrett Gruss}
 \date{\today}
 
 \begin{document}
 
+\maketitle
+
 \section*{Abstract}
 
 This paper provides a brief summary of cloud computing, its history, and various tradeoffs. The distinguishing characteristics of cloud computing, the services and deployment models, and the security challenges are analyzed.
 
-\section{Introducion}
+\section{Introduction}
 
 Cloud computing refers to the integration of distributed computing, network storage, load balance, and high availability. These resources can be provisioned on-demand by users to rapidly scale up or down usage.
 
 \section{History}
 
-The concepts of cloud computing originated in the 60s under the term "utility computing", where compute, storage, and applications could be rented for a defined time. The concept of "Grid Computing" also originated in this time to describe a group of computers coupled to form a virtual machine, often to distribute a complex task into multiple subtasks.
+The concepts of cloud computing originated in the 60s under the terms "utility computing" and "grid computing", where storage, and applications could be rented for a defined time from a virtual network of coupled machines.
 
-Salesforce was the first major provider of software as a service (SaaS), delivering their enterprise software as a service over the internet.
-
-Amazon Web Services (AWS) launched in 2006, providing infrastructure-as-a-service (IaaS) where organizations could provision compute, storage, and network on-demand. By 2007, universities had begun to provide training on cloud computing, offering courses developed in partnership with Google and IBM.
-
-In 2010, the open source community in partnership with Rackspace and NASAS developed a free private cloud system called OpenStack, allowing organizations to standup a private cloud within their network.
+Salesforce was the first major provider of software as a service (SaaS), delivering their enterprise software as a service over the internet. Amazon Web Services (AWS) launched in 2006, providing infrastructure-as-a-service (IaaS) where organizations could provision compute, storage, and network on-demand. By 2007, universities had begun to provide training on cloud computing, offering courses developed in partnership with Google and IBM. In 2010, the open source community in partnership with Rackspace and NASA developed a free private cloud system called OpenStack, allowing organizations to standup a private cloud within their network.
 
 \section{Essential Characteristics}
 
-Cloud computing is defined by the national institute of Standards and Technology (NIST) with five core characteristics: On-Demand Self-Service, Broad Network Access, Resource Pooling, Rapid Elasticity, and Measured Service.
+Cloud computing is defined by the national institute of Standards and Technology (NIST) by five core characteristics: On-Demand Self-Service, Broad Network Access, Resource Pooling, Rapid Elasticity, and Measured Service. There are three core service models available within the cloud that offer these characteristics:
 
-\section{Service Models}
+\textbf{Infrastructure as a service (IaaS):} Customers pay for compute, storage, and networking. \textbf{Platform as a service (PaaS):} Customers pay for a platform to develop on.\textbf{Software as a service (SaaS):} Customers pay for software that is delivered over the web.
 
-Infrastructure as a service (IaaS): Customers get raw compute and storage to build on
-Platform as a service (PaaS): Customers get a platform to dev on
-Software as a service (SaaS): Customers provided software over web
-
-\section{Deployment Models}
-
-- **Public cloud**: Amazon, Azure, Google 
-- **Private Cloud**: Cloud within an org, higher security as network is internal
-- **Community Cloud**: Private cloud shared between organizations
-- **Hybrid cloud deployment**: Public + Private cloud networked together
+Cloud services can be deployed in 4 core models: a public cloud model like AWS, a private cloud within an organization, a community cloud shared amongst private organizations, or a hybrid cloud composing a local cloud with a public cloud.
 
 \section{Security Considerations}
 
-## Cloud Security
-Cloud vendors should encrypt stored passwords and seperate usernames/passwords to guard in the event of a breach.
-
-- **Passwords**: used to connect to cloud services
-- **Access Recovery**: Recover access to cloud
-- **Encryption**: Use strong password encryption
-- **Password Management**: Encourage strong passwords
-- **Multi-factor auth**: Biometric, RSA, or USB key
-- **Login Monitor**: Monitor for suspicious logins
-- **Personal Devices**: Customers should only login on known safe devices to avoid key loggers
-- **Virus, Malware, and Trojans**: Hacker attacks user machine to gain access to their cloud account
+Security in the cloud is a shared responsibility between the user and cloud provider. Cloud providers are responsible for the security of the cloud, such as securing their physical servers, controlling access of their personnel, and guarding against malicious agents. Cloud users are responsible for their security in the cloud, such as encrypting stored passwords, using multi-factor authentication, and updating their deployed software. 
 
 \section{Impact on Software Development}
 
+Software deployed in the cloud must be designed for cloud compatibility, employing distributed systems principles. Applications must be capable of rapidly scaling up or down to serve massive fluctuating user bases. Services must be accessible over the internet with security controls. Development must utilize cloud-native patterns such as microservices, containers, and serverless computing.
+
 \section{Conclusion}
 
+Cloud computing represents an evolution of hardware infrastructure and software deployment, originating from concepts in the 60s such as grid computing and utility computing. Pioneers such as Salesforce utilized the SaaS model in the late 90s, with AWS launching their IaaS in 2006.
 
+The five core characteristics of the cloud are on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service. Safety remains a critical consideration while using the cloud, requiring constant vigilance to guard cloud software against attack vectors.
+
+\section{References}
+
+Mell, P., \& Grance, T. (2011). The NIST definition of cloud computing. \textit{National Institute of Standards and Technology Special Publication 800-145}.
+
+Surbiryala, J., \& Rong, C. (2019). Cloud computing: History and overview. \textit{2019 IEEE Cloud Summit}, 1-7. \url{https://doi.org/10.1109/CloudSummit47114.2019.00007}
 
 \end{document}
