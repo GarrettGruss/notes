@@ -1,0 +1,85 @@
+\documentclass[14pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+
+\onehalfspacing
+
+\title{Lab 2}
+\author{Garrett Gruss 4976-3695}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Summary}
+
+This lab covered the EC2 instance lifecycle, AMI creation, and launch templates. Exercises included launching an EC2 instance and connecting via SSH, resizing an instance by changing its type, assessing EC2 pricing models, creating a custom AMI from a running instance and launching a new instance from it, creating and versioning a launch template, launching an instance from a launch template with a user data script to serve a web page, and launching an instance from the AWS CLI. All provisioned resources were terminated and cleaned up upon completion.
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.1.png}
+  \caption{Exercise 2.1 -- Launching an EC2 instance and connecting via SSH.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.2-1.png}
+  \caption{Exercise 2.2 (1) -- Changing the instance type from t3.micro to t2.nano.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.2-2.png}
+  \caption{Exercise 2.2 (2) -- Instance running with the new t2.nano type.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.4-1.png}
+  \caption{Exercise 2.4 (1) -- SSH into the instance and creating a test file to be included in the AMI.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.4-2.png}
+  \caption{Exercise 2.4 (2) -- Custom AMI (test-ami) created from the running instance.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.4-3.png}
+  \caption{Exercise 2.4 (3) -- New instance launched from the custom AMI, confirming test.txt is present.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.5-1.png}
+  \caption{Exercise 2.5 (1) -- Launch template (MyTemplate) created with version 3, using a t2.nano instance type.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.5-2.png}
+  \caption{Exercise 2.5 (2) -- Instance launched from the launch template serving a web page via user data script.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.6.png}
+  \caption{Exercise 2.6 -- Launching an EC2 instance from the AWS CLI using \texttt{aws ec2 run-instances}.}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{2.7.png}
+  \caption{Exercise 2.7 -- Resource cleanup: all instances terminated.}
+\end{figure}
+
+\section{Exercise 2.3}
+
+\textbf{Q:} Imagine that your application will need to run two always-on f1.2xlarge instances (which come with instance storage and won't require any EBS volumes). To meet seasonal demand, you can expect to require as many as four more instances for a total of 100 hours through the course of a single year. How should you pay for this deployment? Bonus: Calculate your total estimated monthly and annual costs.
+
+\textbf{A:} Purchase 2x f1.2xlarge on a three-year reserved instance term. Purchase 100 hours of f1.2xlarge on-demand for the seasonal burst capacity.
+
+\[
+\text{Cost} = 2 \times 12 \times \$146.00/\text{month} + 100 \times \$0.362/\text{hour} = \$3{,}540.20/\text{year}
+\]
+
+\end{document}
