@@ -77,3 +77,143 @@ used for write once, read many (WORM)
 - Encryption at Rest
     * client side encryption
     * Encrypt before upload to S3
+
+# Databases
+
+## Relational Databases
+- Tables, rows, columns
+- AWS offerings: Aurora, MySQL, Maria, Postgre, Oracle, Microsoft sql server
+- Use case: Online transaction processing (OLTP) workloads
+
+## OLTP vs OLAP
+
+### OLTP
+- Processes data from transactions in real time
+- RDS
+
+### OLAP
+- Process complex queries to analyze historical data
+- Data warehoues such as redshift
+
+## RDS
+- running in minutes
+- Multi AZ
+- Failover capability
+- Automated backups
+
+### Multi-AZ
+
+Multi-AZ is for disaster recovery if main DB is down, standby can be reached. Use case does not improve performance
+
+- AWS handles replication
+    * Auto syncronize writes to prod DB and standby DB
+- Aurora is always multi-AZ
+- Optional multi-AZ: SQL Server, MySQL, PostreSQL, Oracle, MariaDB
+
+![alt text](image.png)
+
+To improve performance, use `Read Replicas` - read-only copy of primary DB
+- Take load off primary DB for read-heavy workloads
+- Cross-AZ or cross-region
+- Up to 5 read-replicas
+
+## Amazon Aurora
+Amazon's properietary DB
+- Similar to mySQL and PostgreSQL
+- Storage auto-scaling
+    * Starts with 10 GB
+    * Scales in 10 GB increments up to 128 TB
+- Compute scales
+    * Max 96 vCPUs and 768 GB memory
+- 6 copies
+- Self-Healing
+
+### Types of aurora replicas
+- Aurora Replicas: 15
+- MySQL replicas: 5
+- PostgreSQL: 5
+
+note: Question for prof, this slide mentions `Aurora MySQL` and `Aurora PostgreSQL` - What are these?
+
+### Aurora Backup
+- Always enabled
+- Can take snapshots with Aurora
+    * Question: Does this mean Aurora takes a snapshot of a different RDS instance?
+- Can share snapshots with other AWS accounts
+
+### Aurora Serverless
+On-demand, auto-scaling configuration for MySQL and PostgreSQL editions of Aurora.
+
+- Auto scales
+- Use case: Infrequent, intermittent, or unpredictable workloads
+
+## Amazon DynamoDB
+- NoSQL DB
+- Documents and key-value
+- Stored on SSD storage
+- Spread across 3 AZs?
+- Eventually consistent reads (default)
+- Strongly consistent reads
+
+### Eventually Consistent Reads
+Consistency across all distributed copies of data is usually reached within a second
+- Default option
+- Best read performance
+
+### Strongly consistent Reads
+Returns a result that reflects all writes that recieved a successful response prior to the read
+
+### DynamoDB Accelerator (DAX)
+
+- Fully managed memory-cache
+- 10x performance improvement
+- Reduce request time from milliseconds to microseconds
+- Dont need to manage caching on dev side
+- Compatible with DynamoDB APIs
+
+### On-Demand
+- Pay-per-request pricing
+- Balance cost and performance
+- No min capacity
+- use for new product launches
+
+### Security
+- Encryption at rest w/ KMS
+- site to site VPN
+- Direct Connect
+- IAM policies and roles
+-Fine-grained access
+- CloudWatch and CloudTrail
+- VPC endpoints
+
+### DynamoDB Transactions
+
+DynamoDB provides ACID across tables within a single AWS account and region.
+
+**ACID**
+- Atomic: All changes to data must be successful
+- Consistent: Data must be in consistent state before and after transaction
+- Isolated: Not other process can change data during transaction
+- Durable: Changes made by transaction must persist
+
+## DynamoDB On-Demand Backup and Restore
+- Full backups
+- 0 impact on performance
+- Same region as source table
+- Point-in-Time Recovery (PITR)
+    * Restore to any point in the last 35 days
+    * disabled by default
+
+### DynamoDB Streams and Global Tables
+- Time-ordered sequence of changes in a table
+- Stored for 24 hours
+- Multi-Master, multi-region replication
+- Replication latency under 1 second
+
+## Amazon Neptune
+- Graph Database: stores node and relationships
+- Use cases:
+    * Connections between identities
+    * Knowledge graph apps
+    * Fraud detection
+    * Security graphs
