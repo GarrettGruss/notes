@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Marinescu(2023)]{MARINESCU202313}
+Dan~C. Marinescu.
+\newblock Chapter 2 - the cloud ecosystem.
+\newblock In Dan~C. Marinescu, editor, \emph{Cloud Computing (Third Edition)}, pages 13--40. Morgan Kaufmann, third edition edition, 2023.
+\newblock ISBN 978-0-323-85277-7.
+\newblock \doi{https://doi.org/10.1016/B978-0-32-385277-7.00009-9}.
+\newblock URL \url{https://www.sciencedirect.com/science/article/pii/B9780323852777000099}.
+
+\end{thebibliography}
