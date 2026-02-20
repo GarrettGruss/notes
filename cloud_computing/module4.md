@@ -101,3 +101,121 @@ Physical ethernet connection associated with a single customer
 
 ### Type 2: Hosted Connection
 Physical ethernet connection that an AWS Direct Connect Partner provisions on behalf of a customer
+
+# Cloudfront
+
+## Content Delivery Networks (CDN)
+Receives the content from an origin server, then replicates it to its edge cache servers.
+- Improved speed
+- High scalability
+
+### CDN Protocols
+- Network Element Control Protocol (NECP)
+- Web Cache Coordination Protocol (WCCP)
+- SOCKS
+- Cache Array Routing Protocol (CARP)
+- Internet Cache Protocol (ICP)
+- Hypertext Caching Protocol (HTCP)
+- Cache Digest
+
+## Key Terminology
+
+- **Edge Location**: Edge location where content is cached. Seperate from region.
+- **Origin**: Origin of the files (S3, EC2, etc)
+- **Distribution**: collection of edge locations (distribution network)
+
+## Cloudfront
+Cloudfront is amazon's CDN.
+![alt text](image-3.png)
+
+## Important Settings
+- Security: defaults to HTTPS
+- Global Distribution: you enable in selected regions of the world
+- Endpoint Support: Can be used to front AWS endpoints along with non-AWS applications (clarify with prof meaning)
+- Expiring Content: Can force an expiration of content from the cache
+
+# Route 53
+
+## Domain Name System (DNS)
+phonebook of the internet.
+
+- convert huma-friendly domain names e.g. www.smu.edu into an Internet Protocol (IP) address e.g., http://129.119.70.166
+- IPv4 and IPv6
+- Internet Assigned Numbers Authority (IANA) controls domains (.edu, .com, etc)
+
+## IPV4
+- 32-bit field
+- Over 4 billion different addresses (4,294,967,296 – to be precise)
+
+## IPV6
+- address space of 128 bits
+- Over 340 undecillion addresses (a number equal to 1 followed by 36 zeros)
+
+## Domain Registrars
+registrar is an authority that can assign domain names under one or more top-level domains
+
+- Organize domain names to ensure uniqueness
+- Registered with InterNIC, a service of ICANN, which enforces domain name uniqueness
+- Each domain becomes registered in the WHOIS database
+
+### Popular Domain Registrars
+domain.com, GoDaddy, AWS, SquareSpace, Namecheap
+
+## Start of Authority (SoA)
+Stores admin information about the domain.
+- Name of the server that supplied the data for the zone
+- Administrator of the zone (email address)
+- Current version of the data files
+- Default number of seconds for the time to live files on the resource records
+
+## A record
+Used by a computer to translate the name of the domain to an IP address
+- example: https://www.smu.edu points to https://129.119.70.166
+
+## Time to Live (TTL)
+The length that a DNS record is cached on either the resolving server or the user's own local PC is equal to the value of the time to live (TTL) in seconds
+- The lower the time to live, the faster the changes to DNS records take to propagate throughout the internet
+
+## Canonical Name (CNAME)
+Resolves one domain to another
+
+## Alias Records
+Mapping of CNAME to load balancers, cloudfront, etc.
+
+## Route 53
+Amazon’s DNS service
+- Register domain names
+- create hosted zones
+- manage and create DNS records
+- 8 Routing policies
+    * Simple
+    * weighted
+    * IP-based
+    * latency-based
+    * failover
+    * geolocation
+    * geoproximity
+    * multivalue answer
+
+## Routing policies
+
+### Simple
+Route 53 returns all values to the user in a random order
+
+### Weighted
+split your traffic based on different assigned weights
+- Ex: 20% of your traffic to go to us-east-1 and 80% to go to us-west-1
+
+### Failover
+Used when you want to create an active/passive setup
+![alt text](image-4.png)
+
+### Geolocation
+Choose where you traffic will be sent based on the geographic location of your users
+
+### Latency Routing
+Route your traffic based on the lowest network latency for your end user (i.e., which region will give them the fastest response time).
+- create a latency resource record set for the EC2 (or ELB) resource in each region that hosts your website
+
+### Multivalue Answer Routing Policy
+Like Simple Routing; however, it allows you to put health checks on each record set
