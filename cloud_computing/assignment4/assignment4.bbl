@@ -1,0 +1,27 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Feamster et~al.(2014)Feamster, Rexford, and Zegura]{feamster2014}
+Nick Feamster, Jennifer Rexford, and Ellen Zegura.
+\newblock The road to {SDN}: An intellectual history of programmable networks.
+\newblock \emph{ACM SIGCOMM Computer Communication Review}, 44\penalty0 (2):\penalty0 87--98, 2014.
+\newblock \doi{10.1145/2602204.2602219}.
+
+\bibitem[Kreutz et~al.(2015)Kreutz, Ramos, Verissimo, Rothenberg, Azodolmolky, and Uhlig]{kreutz2015}
+Diego Kreutz, Fernando M.~V. Ramos, Paulo Verissimo, Christian~Esteve Rothenberg, Siamak Azodolmolky, and Steve Uhlig.
+\newblock Software-defined networking: A comprehensive survey.
+\newblock \emph{Proceedings of the IEEE}, 103\penalty0 (1):\penalty0 14--76, 2015.
+\newblock \doi{10.1109/JPROC.2014.2371999}.
+
+\bibitem[{Open Networking Foundation}(2013)]{onf2013}
+{Open Networking Foundation}.
+\newblock Software-defined networking: The new norm for networks.
+\newblock Technical report, Open Networking Foundation, 2013.
+\newblock URL \url{https://opennetworking.org/sdn-resources/whitepapers/software-defined-networking-the-new-norm-for-networks/}.
+\newblock ONF White Paper.
+
+\end{thebibliography}

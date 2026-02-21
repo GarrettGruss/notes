@@ -3,11 +3,13 @@
 ## What is VPC
 Isolated part of AWS cloud where you define own network
 - Complete control of IP addr range, subnets, route tables, gateways
+- See [CIDR](https://cidr.xyz/)
 
 ### Components
 - Web: Public facing subnet
 - Application: can run on the private subnet
 - Database: Can run on private subnet
+![alt text](image-5.png)
 
 ## What is Virtual Private Network (VPN)
 VPN is a private connection between on-prem datacenter and VPC.

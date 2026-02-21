@@ -1,0 +1,153 @@
+\documentclass[14pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\onehalfspacing
+
+\title{Lab 4}
+\author{Garrett Gruss 4976-3695}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Summary}
+
+This lab covered the creation and configuration of Amazon Virtual Private Clouds (VPCs) and Transit Gateway networking. Exercises 4.1 through 4.9 involved creating two isolated VPCs with custom CIDR blocks (172.16.0.0/16 and 172.17.0.0/16), provisioning subnets within each VPC in separate availability zones, and establishing a Transit Gateway to enable routing between the two otherwise-isolated networks. VPC attachments were created for each subnet and attached to the Transit Gateway, route tables were updated in each VPC to direct cross-VPC traffic through the Transit Gateway, and the resulting routes were verified using the AWS CLI. Exercises 8.1 through 8.4 covered Amazon CloudFront and Route 53, including configuring a CloudFront distribution to serve content from an origin, exploring edge location caching behavior, registering and managing DNS records in Route 53, and applying routing policies to direct traffic based on geographic and latency-based rules.
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.1-1.png}
+  \caption{Exercise 4.1 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.1-2.png}
+  \caption{Exercise 4.1 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.2-1.png}
+  \caption{Exercise 4.2 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.2-2.png}
+  \caption{Exercise 4.2 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.3-1.png}
+  \caption{Exercise 4.3 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.3-2.png}
+  \caption{Exercise 4.3 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.4-1.png}
+  \caption{Exercise 4.4 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.4-2.png}
+  \caption{Exercise 4.4 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.4-3.png}
+  \caption{Exercise 4.4 (3)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.5-1.png}
+  \caption{Exercise 4.5 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.5-2.png}
+  \caption{Exercise 4.5 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.6-1.png}
+  \caption{Exercise 4.6 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.6-2.png}
+  \caption{Exercise 4.6 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.7-1.png}
+  \caption{Exercise 4.7 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.7-2.png}
+  \caption{Exercise 4.7 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.8-1.png}
+  \caption{Exercise 4.8 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.8-2.png}
+  \caption{Exercise 4.8 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.8-3.png}
+  \caption{Exercise 4.8 (3)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.8-4.png}
+  \caption{Exercise 4.8 (4)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.9-1.png}
+  \caption{Exercise 4.9 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{4.9-2.png}
+  \caption{Exercise 4.9 (2)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{8.1-1.png}
+  \caption{Exercise 8.1}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{8.2-1.png}
+  \caption{Exercise 8.2}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{8.3-1.png}
+  \caption{Exercise 8.3}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{8.4-1.png}
+  \caption{Exercise 8.4 (1)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{8.4-2.png}
+  \caption{Exercise 8.4 (2)}
+\end{figure}
+
+\end{document}

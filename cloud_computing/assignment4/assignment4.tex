@@ -1,0 +1,54 @@
+% Software-Defined Networking report for Cloud Computing course
+% Compile with: pdflatex assignment4 && bibtex assignment4 && pdflatex assignment4 && pdflatex assignment4
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}           % Helvetica — closest widely-installed sans-serif to Calibri
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage[numbers]{natbib}
+
+\onehalfspacing
+
+\title{Assignment 4: Software-Defined Networking}
+\author{Garrett Gruss 4976-3695}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+
+Cloud computing requires the provisioning of network resources on demand, the isolation of thousands of tenants on shared hardware, and the ability to reconfigure globally on demand, in seconds. Traditional hardware-based networks cannot meet these requirements, leading to the rise of software defined networking (SDN). In SDN, the control plane and the data plane are separated, allowing the network to be controlled in a centralized manner using API-driven resource provisioning \cite{kreutz2015}.
+
+\section{SDN versus Traditional Networking}
+
+In a traditional networking deployment, each switch and router are configured to run their portion of the network stack, such as OSPF and BGP protocols. Reconfiguring the network requires a dedicated engineer to interface with each hardware device through vendor-specific command line interfaces, potentially requiring hundreds of device configurations manually. This process often takes hours or days to accomplish \cite{feamster2014}.
+
+In SDN, a centralized controller like OpenFlow manages the state of the network devices. To update the network, engineers just update the centralized controller, and as the control plane, this device is responsible for distributing the changes to the switches and routers under its authority. So long as new networking devices are supported by the control plane, they can be added and removed to expand or contract the network on demand \cite{onf2013}.
+
+\section{SDN Enabling Cloud Capabilities}
+
+SDN manages the elasticity of the network by automatically expanding and contracting the network as virtual machines or containerized services do. When the workload grows on the network, the SDN automatically reroutes traffic to paths under low utilization, or expands network resources when load increases. The SDN controllers also integrate with services such as OpenStack Neutron or the Kubernetes CNI plugins to automate resource provisioning alongside compute. This framework enables complete elastic abstraction of the network infrastructure stack \cite{kreutz2015}.
+
+Hundreds of thousands of tenants operate in the cloud on shared physical infrastructure. The SDN is responsible for ensuring isolation between tenants. It accomplishes this isolation through two core mechanisms: first, an overlay encapsulation through protocols such as VXLAN wraps tenant traffic in tunnels, allowing tenants to use overlapping IP addresses without conflicts or collisions. Second, the controller prevents lateral movement between tenants by controlling access-control rules on forwarding devices at the line rate. If a security event occurs, the controller can isolate the device within milliseconds to maintain security of the network \cite{feamster2014}.
+
+With SDN, the bottleneck of network scalability has been removed from the cloud. Resources can join the system through automated provisioning and scaling. Virtual network devices such as load balancers, firewalls, and intrusion detection systems can be provisioned as commodities. Days-long provisioning operations are replaced with near instantaneous automated deployments \cite{onf2013}.
+
+\section{Conclusion}
+
+To achieve rapid scalability and automated provisioning in a cloud environment, virtualization is required at every level of infrastructure management. This is achieved in the cloud through SDN. Without SDN, network resources would need to be provisioned manually, requiring days to modify the network. Management and observation of the network would be extremely complex, and would require resource waste to ensure tenant isolation. SDN allows the network to operate at a hyperscale, with high optimization and utilization while ensure complete tenant isolation and security \cite{feamster2014}.
+
+SDN is the foundation of modern cloud networking. By decoupling the network control plane from the physical data plane, SDN enables a programmatic approach to real-time network management. This enablement of cloud elasticity allows for the strong isolation required for multi-tenant deployments, the automation for self-service provisioning, and the scalability required for cloud operations. Traditional network deployments cannot deliver these capabilities at scale, making SDN the logical enhancement required for cloud computing at scale. 
+
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{sdn_references}
+
+\end{document}
